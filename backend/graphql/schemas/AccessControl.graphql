@@ -1,0 +1,19 @@
+type AccessRule {
+  id: ID!
+  role: String!
+  resource: String!
+  permission: String!
+}
+
+type Query {
+  getAccessRules(role: String!): [AccessRule!]
+}
+
+type Mutation {
+  addAccessRule(role: String!, resource: String!, permission: String!): AccessRule!
+  removeAccessRule(ruleId: ID!): SuccessResponse!
+}
+
+type SuccessResponse {
+  success: Boolean!
+}

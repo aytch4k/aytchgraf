@@ -1,0 +1,15 @@
+type Log {
+  id: ID!
+  resourceId: String!
+  level: String!
+  message: String!
+  timestamp: String!
+}
+
+type Query {
+  getLogs(resourceId: String!, level: String, startTime: String, endTime: String): [Log!]
+}
+
+type Mutation {
+  logEvent(resourceId: String!, level: String!, message: String!): Log!
+}

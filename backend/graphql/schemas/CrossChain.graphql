@@ -1,0 +1,14 @@
+type CrossChainStatus {
+  chainId: String!
+  status: String!
+}
+
+type Query {
+  getInteroperabilityStatus(chainId: String!): CrossChainStatus!
+}
+
+type Mutation {
+  enableInteroperability(chainId: String!, configuration: JSON!): SuccessResponse!
+}
+
+scalar JSON

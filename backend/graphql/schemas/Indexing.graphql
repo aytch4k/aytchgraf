@@ -1,0 +1,15 @@
+type Index {
+  id: ID!
+  dataId: ID!
+  indexType: String!
+  createdAt: String!
+}
+
+type Query {
+  getIndexStatus(indexId: ID!): Index!
+}
+
+type Mutation {
+  createIndex(dataId: ID!, indexType: String!): Index!
+  deleteIndex(indexId: ID!): SuccessResponse!
+}

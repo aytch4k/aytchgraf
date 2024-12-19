@@ -1,0 +1,8 @@
+type OptimizedQuery {
+  originalQuery: String!
+  optimizedQuery: String!
+}
+
+type Query {
+  optimizeQuery(query: String!): OptimizedQuery!
+}

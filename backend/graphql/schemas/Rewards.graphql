@@ -1,0 +1,16 @@
+type Reward {
+  id: ID!
+  userId: ID!
+  description: String!
+  value: Float!
+  redeemed: Boolean!
+  createdAt: String!
+}
+
+type Query {
+  getRewards(userId: ID!): [Reward!]
+}
+
+type Mutation {
+  redeemReward(rewardId: ID!): SuccessResponse!
+}

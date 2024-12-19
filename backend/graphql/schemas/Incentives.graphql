@@ -1,0 +1,15 @@
+type Incentive {
+  id: ID!
+  name: String!
+  description: String!
+  value: Float!
+  createdAt: String!
+}
+
+type Query {
+  getIncentiveDetails(incentiveId: ID!): Incentive!
+}
+
+type Mutation {
+  createIncentive(name: String!, description: String!, value: Float!): Incentive!
+}

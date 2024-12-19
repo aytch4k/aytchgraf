@@ -1,0 +1,31 @@
+# index.graphql
+type Query {
+  getAccessRules(role: String!): [AccessRule!]
+  getBillingDetails(accountId: ID!): [Invoice!]
+  getInteroperabilityStatus(chainId: String!): CrossChainStatus!
+  getEncryptionStatus(dataId: ID!): EncryptionStatus!
+  getPrivacySettings(userId: ID!): PrivacySettings!
+  getIncentiveDetails(incentiveId: ID!): Incentive!
+  getRewards(userId: ID!): [Reward!]
+  getIndexStatus(indexId: ID!): Index!
+  optimizeQuery(query: String!): OptimizedQuery!
+  getLogs(resourceId: String!, level: String, startTime: String, endTime: String): [Log!]
+}
+
+type Mutation {
+  addAccessRule(role: String!, resource: String!, permission: String!): AccessRule!
+  removeAccessRule(ruleId: ID!): SuccessResponse!
+  createInvoice(accountId: ID!, amount: Float!, description: String!): Invoice!
+  settleInvoice(invoiceId: ID!): SuccessResponse!
+  enableInteroperability(chainId: String!, configuration: JSON!): SuccessResponse!
+  encryptData(dataId: ID!, encryptionType: String!): EncryptionStatus!
+  decryptData(dataId: ID!): DecryptedData!
+  updatePrivacySettings(userId: ID!, settings: JSON!): PrivacySettings!
+  createIncentive(name: String!, description: String!, value: Float!): Incentive!
+  redeemReward(rewardId: ID!): SuccessResponse!
+  createIndex(dataId: ID!, indexType: String!): Index!
+  deleteIndex(indexId: ID!): SuccessResponse!
+  logEvent(resourceId: String!, level: String!, message: String!): Log!
+}
+
+scalar JSON

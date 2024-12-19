@@ -1,0 +1,17 @@
+type Invoice {
+  id: ID!
+  accountId: ID!
+  amount: Float!
+  description: String!
+  status: String!
+  createdAt: String!
+}
+
+type Query {
+  getBillingDetails(accountId: ID!): [Invoice!]
+}
+
+type Mutation {
+  createInvoice(accountId: ID!, amount: Float!, description: String!): Invoice!
+  settleInvoice(invoiceId: ID!): SuccessResponse!
+}

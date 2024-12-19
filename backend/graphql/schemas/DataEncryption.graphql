@@ -1,0 +1,19 @@
+type EncryptionStatus {
+  dataId: ID!
+  encryptionType: String!
+  status: String!
+}
+
+type Query {
+  getEncryptionStatus(dataId: ID!): EncryptionStatus!
+}
+
+type Mutation {
+  encryptData(dataId: ID!, encryptionType: String!): EncryptionStatus!
+  decryptData(dataId: ID!): DecryptedData!
+}
+
+type DecryptedData {
+  dataId: ID!
+  decryptedContent: String!
+}

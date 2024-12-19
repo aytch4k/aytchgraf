@@ -1,0 +1,14 @@
+type PrivacySettings {
+  userId: ID!
+  settings: JSON!
+}
+
+type Query {
+  getPrivacySettings(userId: ID!): PrivacySettings!
+}
+
+type Mutation {
+  updatePrivacySettings(userId: ID!, settings: JSON!): PrivacySettings!
+}
+
+scalar JSON
